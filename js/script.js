@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const errorElement = field.closest('tr').querySelector('.error-message');
         if (errorElement) {
             errorElement.textContent = '';
+            
+            
         }
         field.style.borderColor = 'green';
         errors.delete(field.id);
@@ -86,7 +88,53 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+function validateNom(input) {
+    if (!fieldsInteracted.has(input.id)) return true;
+    if (isFieldEmpty(input)) {
+        showError(input, 'Ce champ est requis');
+        return false;
+    } else if (input.value.length < 3) {
+        showError(input, 'Ce champ doit avoir au moins 3 caractères');
+        return false;
+    } else {
+        return true;
+    }
+}
 
+function validatePrenom(input) {
+    if (!fieldsInteracted.has(input.id)) return true;
+    if (isFieldEmpty(input)) {
+        showError(input, 'Ce champ est requis');
+        return false;
+    } else if (input.value.length < 3) {
+        showError(input, 'Ce champ doit avoir au moins 3 caractères');
+        return false;
+    } else {
+        return true;
+    }
+}function validateField(field) {
+    if (!fieldsInteracted.has(field.id)) return true;
+    switch(field.id) {
+        case 'nom':
+            return validateNom(field);
+        case 'prenom':
+            return validatePrenom(field);
+       
+    }
+}function transformNom(input) {
+    input.value = input.value.toUpperCase();
+    if (validateField(input)) {
+        clearError(input);
+    }
+}
+
+function transformPrenom(input) {
+    input.value = input.value.toLowerCase().replace(/\b\w/g, l => l.toUpperCase());
+    if (validateField(input)) {
+        clearError(input);
+    }
+}
+ 
     function validateEmail(input) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(input.value)) {
@@ -97,9 +145,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function validateCodeConfidentiel(input) {
-        const codeRegex = /^FR\d{5}[A-Z]{3}X$/;
+        const codeRegex = /^FR\d{5}[A-Z]{3}x$/;
         if (!codeRegex.test(input.value)) {
-            showError(input, 'Format invalide. Le code doit commencer par FR, suivi de 5 chiffres, puis 3 lettres majuscules et se terminer par X');
+            showError(input, 'Format invalide. Le code doit commencer par FR, suivi de 5 chiffres, puis 3 lettres majuscules et se terminer par x');
         } else {
             clearError(input);
         }
@@ -176,6 +224,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (resetButton) {
             resetButton.addEventListener('click', resetForm);
+
         }
     }
+    
 });
