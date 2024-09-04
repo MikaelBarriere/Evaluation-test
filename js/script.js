@@ -164,7 +164,8 @@ document.addEventListener('DOMContentLoaded', function() {
             inputs.forEach(validateField);
             
             if (errors.size === 0) {
-                document.getElementById('modalMessage').textContent = 'Vos informations vont être transmises au serveur pour traitement.';
+                document.getElementById('modalMessage1').textContent = 'Vos données sont valides, elles vont être transmises sur nos serveurs pour traitement.';
+                document.getElementById('modalMessage2').textContent = 'Nous sommes ravis de vous compter parmi nos nouveaux clients';
                 modal.show();
 
                 document.getElementById('infoModal').addEventListener('hidden.bs.modal', function () {
