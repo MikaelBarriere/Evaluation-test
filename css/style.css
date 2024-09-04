@@ -1,6 +1,6 @@
 html, body {
     height: 100%;
-    background-image: url(/img/fond.png);
+    background-image: url(../img/fond.png);
 }
 h1,h2  {
         font-family: "Rubik Mono One", monospace;
