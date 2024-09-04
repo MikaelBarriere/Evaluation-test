@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire Bancaire</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="d-flex flex-column h-100">
+    <div class="container my-5 flex-grow-1 d-flex flex-column">
+        <h1 class="text-center mb-4 text-success">Formulaire Bancaire</h1>
+        <form id="bankForm" class="flex-grow-1 d-flex flex-column">
+            <table class="table table-bordered table-checkerboard flex-grow-1">
+                <colgroup>
+                    <col style="width: 25%;">
+                    <col style="width: 45%;">
+                    <col class="error-column">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td><label class="text-success fw-bold"for="nom">Nom</label></td>
+                        <td><input type="text" id="nom" name="nom" class="form-control" required></td>
+                        <td><span id="nomError" class="error-message fw-bolder"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label class="text-success fw-bold"for="prenom">Prénom</label></td>
+                        <td><input type="text" id="prenom" name="prenom" class="form-control" required></td>
+                        <td><span id="prenomError" class="error-message fw-bolder"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label class="text-success fw-bold"for="dateNaissance">Date de naissance</label></td>
+                        <td><input type="text" id="dateNaissance" name="dateNaissance" class="form-control" required placeholder="JJ/MM/AAAA"></td>
+                        <td><span id="dateNaissanceError" class="error-message fw-bolder"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label class="text-success fw-bold"for="email">Email</label></td>
+                        <td><input type="text" id="email" name="email" class="form-control" required></td>
+                        <td><span id="emailError" class="error-message fw-bolder"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label class="text-success fw-bold"for="codeConfidentiel">Code confidentiel</label></td>
+                        <td><input type="text" id="codeConfidentiel" name="codeConfidentiel" class="form-control" required placeholder="FR12345ABCX"></td>
+                        <td><span id="codeConfidentielError" class="error-message fw-bolder"></span></td>
+                    </tr>
+                    <tr>
+                        <td><div class="btn-container"><button type="submit" class="btn bg-success text-light border border-light ">Envoyer</button></div></td>
+                        <td><div class="btn-container"><button type="button" id="resetBtn" class="btn bg-success text-light border border-light ">Annuler</button></div></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Formulaire Bancaire</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalMessage"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
